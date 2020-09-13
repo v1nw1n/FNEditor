@@ -1,4 +1,7 @@
 # FNEditor
+#下载
+If you haven't installed JRE,you should download jre.7z together;otherwise download .exe file directly. 
+没安装JRE或者JDK的机器需要把JRE.7z一同下载并解压在exe文件所在目录。
 #帮助
 -【浏览...】选择目录
 -从输入框手动【载入】目录
