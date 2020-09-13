@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<GridPane alignment="CENTER" hgap="5.0" prefHeight="500.0" prefWidth="718.0" vgap="5.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <columnConstraints>
+      <ColumnConstraints maxWidth="218.0" minWidth="130.0" prefWidth="500" />
+      <ColumnConstraints maxWidth="494.40000000000003" minWidth="406.40000000000003" prefWidth="1000" />
+
+   </columnConstraints>
+
+   <rowConstraints>
+
+      <RowConstraints maxHeight="226.0" minHeight="26.799999999999997" prefHeight="31.799999999999997" />
+      <RowConstraints maxHeight="410.8" minHeight="131.0" prefHeight="405.8" />
+   </rowConstraints>
+
+
+   <children>
+      <HBox GridPane.columnIndex="1">
+         <children>
+            <Separator orientation="VERTICAL" prefHeight="200.0" style="-fx-background-color: black;" />
+            <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" prefHeight="32.0" prefWidth="60.0" text="目录 :" textAlignment="CENTER">
+               <HBox.margin>
+                  <Insets left="5.0" right="5.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+            <TextField fx:id="dirInput" prefHeight="30.0" prefWidth="247.0">
+               <HBox.margin>
+                  <Insets left="5.0" right="5.0" />
+               </HBox.margin></TextField>
+            <Button fx:id="lookThrough" defaultButton="true" mnemonicParsing="false" onAction="#openExplorer" prefHeight="32.0" prefWidth="69.0" text="浏览...">
+               <HBox.margin>
+                  <Insets left="5.0" right="5.0" />
+               </HBox.margin></Button>
+            <Button fx:id="loadButton" defaultButton="true" mnemonicParsing="false" onAction="#loadDir" prefHeight="32.0" prefWidth="58.0" text="载入" />
+         </children>
+      </HBox>
+      <TableView fx:id="fileTableView" focusTraversable="false" prefHeight="272.0" prefWidth="488.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+        <columns>
+          <TableColumn fx:id="fName" editable="false" prefWidth="142.20000612735748" text="文件名" />
+          <TableColumn fx:id="modifyTime" prefWidth="87.79998779296875" text="修改日期" />
+           <TableColumn fx:id="fType" editable="false" minWidth="0.0" prefWidth="64.20001220703125" text="类型" />
+           <TableColumn fx:id="fSize" prefWidth="61.199951171875" text="大小" />
+        </columns>
+      </TableView>
+      <VBox prefHeight="226.0" prefWidth="366.0" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
+         <children>
+
+            <HBox prefHeight="35.0" prefWidth="158.0" style="-fx-border-color: black;">
+               <children>
+                  <Label alignment="CENTER" prefHeight="30.0" prefWidth="46.0" text="字段1" />
+                  <TextField fx:id="str1" prefHeight="25.0" prefWidth="170.0" promptText="匹配字符/组合文件名1">
+                     <font>
+                        <Font size="14.0" />
+                     </font></TextField>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="5.0" top="5.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox prefHeight="35.0" prefWidth="158.0" style="-fx-border-color: black;">
+               <children>
+                  <Label alignment="CENTER" prefHeight="30.0" prefWidth="45.0" text="字段2" />
+                  <TextField fx:id="str2" prefHeight="25.0" prefWidth="170.0" promptText="起始序列号">
+                     <font>
+                        <Font size="14.0" />
+                     </font></TextField>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="5.0" top="5.0" />
+               </VBox.margin></HBox>
+            <HBox prefHeight="35.0" prefWidth="158.0" style="-fx-border-color: black;">
+               <children>
+                  <Label alignment="CENTER" prefHeight="30.0" prefWidth="45.0" text="字段3" />
+                  <TextField fx:id="str3" prefHeight="25.0" prefWidth="170.0" promptText="替换/组合文件名2">
+                     <font>
+                        <Font size="14.0" />
+                     </font></TextField>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="5.0" top="5.0" />
+               </VBox.margin>
+            </HBox>
+            <TextArea cache="true" editable="false" prefHeight="306.0" prefWidth="218.0" style="-fx-background-color: #F3F3F3;" text="--帮助--&#10;#【浏览...】选择目录&#10;#从输入框手动【载入】目录&#10;#执行每一次【匹配】后需要重新【载入】目录以重新激活按钮&#10;1预匹配更名&#10;①字段1输入匹配字符&#10;②执行【匹配】&#10;1.1替换更名&#10;①字段1输入匹配字符&#10;②字段3输入替换字符&#10;③点击【替换】按钮&#10;1.2格式化更名&#10;①字段1输入文件名前缀&#10;②字段2输入起始序号&#10;③字段3可选，输入文件名后缀(非文件类型后缀)&#10;④点击【格式化】按钮&#10;2.全部更名&#10;直接执行1.1或1.2步骤&#10;--关于--&#10;愿这一生，有诗、浪漫和你。" wrapText="true">
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+               <effect>
+                  <Lighting bumpInput="$null" diffuseConstant="2.0" specularConstant="0.0" specularExponent="21.87" surfaceScale="0.0">
+                     <light>
+                        <Light.Distant>
+                           <color>
+                              <Color red="0.6952916383743286" green="0.40407896041870117" blue="0.8763157725334167" />
+                           </color>
+                        </Light.Distant>
+                     </light>
+                  </Lighting>
+               </effect>
+            </TextArea>
+         </children>
+      </VBox>
+      <HBox prefHeight="100.0" prefWidth="300.0">
+         <children>
+            <Button fx:id="matchButton" mnemonicParsing="false" onAction="#matchFileObject" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #2FE126; -fx-border-color: black;" text="匹配" textFill="WHITE">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <HBox.margin>
+                  <Insets right="4.0" />
+               </HBox.margin></Button>
+            <Button fx:id="replaceButton" mnemonicParsing="false" onAction="#replaceFileName" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #E39D1C; -fx-border-color: black;" text="替换">
+               <HBox.margin>
+                  <Insets right="4.0" />
+               </HBox.margin></Button>
+            <Button fx:id="updateButton" mnemonicParsing="false" onAction="#formatFileName" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #E39D1C; -fx-border-color: black;" text="格式化">
+               <padding>
+                  <Insets right="4.0" />
+               </padding></Button>
+         </children>
+      </HBox>
+   </children>
+   <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
+   <padding>
+      <Insets bottom="10.0" top="10.0" />
+   </padding>
+</GridPane>
